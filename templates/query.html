@@ -1,0 +1,54 @@
+{%extends "stocks.html"%}
+{%block title%}Planify Stocks-Query {%endblock%}
+{%block css%}
+#export{
+    
+    font-family: cursive;
+    animation: move 7s linear infinite;
+  }
+  @keyframes move {
+    0% { font-size: medium;}
+    25% { font-size: x-large;}
+    75% { font-size: large;}
+    100% {font-size: medium;}
+
+{%endblock%}
+{%block body%}
+<div class="container m-4 text-center">
+    
+    <h3>Ask your Query Here</h3>
+    <div class="row m-4">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="/query/{{id}}" method="POST">
+                {%csrf_token%}
+                <div class="form-floating">
+                    <textarea minlength="15" name="query" required class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2"></label>
+                  </div>
+                  <input type="submit" id="sbmt" value="Submit Query" class="btn btn-primary m-4">
+            </form>
+            <!-- {% if request.user.is_superuser %} -->
+             <!-- {% endif %} -->
+            <a class="btn btn-success" id="export" href="/export"> Export Submitted Queries to C.S.V.</a>
+            <br><br><br><br>
+            <h4 id="success" style="color: blue;">{{success}}</h4>
+           
+
+           
+        </div>
+
+    </div>
+</div>
+<script>
+    setTimeout(function(){
+	document.getElementById("success").style.display="none"},3000
+)
+setTimeout(function(){
+    var y=document.getElementById("success").innerText;
+    if (y!=""){
+    location.replace("/stocks")}	},3000
+)
+</script>
+{%endblock%}
+

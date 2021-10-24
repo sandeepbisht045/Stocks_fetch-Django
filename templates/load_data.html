@@ -1,0 +1,16 @@
+
+{%for i in data%}
+
+  
+<tr class="tr_data" id="add_data">
+    
+  <th scope="row">{{forloop.counter|add:offset}}</th>
+  <td><form action="/details/{{i.slug}}" method="GET"><input type="submit" value="{{i.name}}"></form> </td>
+  <td>{{i.symbol}}</td>
+  <td><a href="/query/{{i.id}}" style="text-decoration: none;" ><b>Click Here</b></a></td>
+  
+</tr>
+
+{%endfor%}
+
+

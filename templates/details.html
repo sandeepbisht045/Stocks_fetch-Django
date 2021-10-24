@@ -1,0 +1,42 @@
+{%extends "stocks.html"%}
+{%block title%}Planify-Stocks Details {%endblock%}
+{%block css%}
+h3{
+    color: blue;
+    font-family: cursive;
+    animation: move 7s linear infinite;
+  }
+  @keyframes move {
+    0% { font-size: medium;}
+    25% { font-size: x-large;}
+    75% { font-size: large;}
+    100% {font-size: medium;}
+    
+{%endblock%}
+{%block body%}
+
+<br>
+
+<div class="container">
+    {%for i in data%}
+    <h3  class="text-center m-4"><b style="color: black;">Stock: </b>{{i.name}}</h3>
+    <br>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" >
+            <div class="m-2"><b>Description</b></div>
+            <div class="container " style="background-color: rgba(255, 255, 255,0.6); border-radius: 20px;">{{i.desc}}</div>
+            
+        </div>
+
+    </div>
+    {%endfor%}
+</div>
+
+
+
+
+
+
+
+{%endblock%}

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title> {%block title%} Planify Stocks-Home {%endblock%}</title>
+    <style>
+      {%block css%}
+      h3{
+        color: yellow;
+        font-family: cursive;
+        animation: move 7s linear infinite;
+      }
+      @keyframes move {
+        0% { font-size: medium;}
+        25% { font-size: x-large;}
+        75% { font-size: large;}
+        100% {font-size: medium;}
+        
+      }
+      {%endblock%}
+    </style>
+  </head>
+  <!-- ______________________________________________________________________________________________________________________________ -->
+   <!-- header homepage -->
+  {%load static%}
+  {%block image%}
+  <body style="background-image: url({% static 'stocks.jpg' %});">  
+    {%endblock%}
+      <navbar class="nav fixed-top navbar-expand-lg " style="background-color: #001B54 !important" >
+        {%block navbar%} 
+         <h1 class="nav-link" style="margin: auto ; font-style: italic; font-family: 'Lucida Sans'; background-color: #001B54; !important">WELCOME TO PLANIFY STOCKS INFO</h1>
+         {%endblock%}
+        </navbar>
+ 
+    <!-- ________________________________________________________________________________________________________________________________ -->
+  
+    
+    {%block body%}
+    {%if not request.session.email%}
+    <br><br><br><br><br><br><br><br>
+    <div class="row ">
+        <div class="col-md-2 col-sm-2 "></div>
+        <div class="col-md-4 col-sm-4" style="margin: auto;" >
+            <button onmouseover="this.style.backgroundColor='#006db9'" onmouseout="this.style.backgroundColor='#21421E'" type="button" class="btn btn m-4 rounded-circle" style="  height: 130px; width: 200px; background-color: #21421E;"><a style="font-size: xxx-large; color: white; text-decoration: none;" href="/signup">Register</a></button>
+            
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-md-2 col-sm-2"></div>
+        <div class="col-md-4 col-sm-4" style="margin: auto;" >
+             <button onmouseover="this.style.backgroundColor='#006db9'" onmouseout="this.style.backgroundColor='#009000'" type="button" class="btn btn m-4 rounded-circle" style="height: 130px; width: 200px; background-color: #009000;"><a style="font-size: xxx-large; color: white; text-decoration: none;" href="/login">Login</a></button>
+
+        </div>
+    </div>
+    {%else%}
+
+    <br><br><br><br><br> <br> <br> <br>
+    <div class="row " id="move">
+        <div class="col-md-2 col-sm-2 "></div>
+        <div class="col-md-7 col-sm-7" style="margin: auto;" >
+            <h3 class="m-4">Hello {{welcome|title}} </h3>
+            
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-md-2 col-sm-2"></div>
+        <div class="col-md-4 col-sm-4" style="margin: auto;" >
+             <button onmouseover="this.style.backgroundColor='#006db9'" onmouseout="this.style.backgroundColor='#009000'" type="button" class="btn btn m-4 " style="height: 160px; width: 200px; background-color: #009000;"><a style="font-size: xxx-large; color: white; text-decoration: none;" href="/stocks">Explore Stocks</a></button>
+
+        </div>
+    </div>
+    {%endif%}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+    {%endblock%}
+    {%block js%}
+    {%endblock%}
+  </body>
+</html>
+   
